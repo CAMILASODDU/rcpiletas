@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RC Piletas</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('wormz.png');
+      background-size: 400px 400px;
+      background-repeat: repeat;
+      background-color: #ffffff;
+    }
+
+    header {
+      background-color: #1f4fa4;
+      color: #1fd8e1;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 100px;
+    }
+
+    header h1 {
+      font-family: 'Bangers', sans-serif;
+      font-size: 3rem;
+      margin: 0.5rem 0;
+      flex: 1 1 100%;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: #1fd8e1;
+      margin: 0.5rem 1rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .carousel-item img {
+      height: 400px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .carousel {
+      margin: 2rem auto;
+      width: 90%;
+    }
+
+    .form-section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      background: linear-gradient(to bottom right, #e0f7fa, #b4d4f5);
+      padding: 2rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-section h2 {
+      font-family: 'Bangers', cursive;
+      font-size: 2.2rem;
+      color: #1f4fa4;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: #1f4fa4;
+    }
+
+    .form-control {
+      border-radius: 12px;
+      border: 2px solid #a0c6e8;
+      padding: 0.75rem 1rem;
+      background-color: #ffffff;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .form-control:focus {
+      border-color: #1fd8e1;
+      box-shadow: 0 0 10px rgba(31, 216, 225, 0.25);
+    }
+
+    .btn-custom {
+      background-color: #1fd8e1;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: #17c6cd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #e6e0f8;
+      color: #1f4fa4;
+      font-size: 0.95rem;
+      margin-top: 4rem;
+    }
+
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 24px;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-button img {
+      width: 35px;
+      height: 35px;
+    }
+
+    .ubicacion-img {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+        margin: 0.5rem auto;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .carousel-item img {
+        height: 250px;
+      }
+
+      .form-section {
+        padding: 1.5rem 1rem;
+      }
+
+      .form-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .btn-custom {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        margin: 0.25rem 0.75rem;
+        font-size: 0.9rem;
+      }
+
+      .carousel-item img {
+        height: 200px;
+      }
+
+      .form-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="logorc.png" alt="Logo">
+    <h1>RC Piletas</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Sección Productos -->
+  <div id="productos" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="pile1.png" class="d-block w-100" alt="Imagen 1">
+      </div>
+      <div class="carousel-item">
+        <img src="pile2.png" class="d-block w-100" alt="Imagen 2">
+      </div>
+      <div class="carousel-item">
+        <img src="pile3.png" class="d-block w-100" alt="Imagen 3">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#productos" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#productos" role="button" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+
+  <!-- Sección Nosotros -->
+  <section id="nosotros" class="my-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Dónde estamos</h2>
+      <img src="maps.png" alt="Ubicación RC Piletas" class="ubicacion-img">
+    </div>
+  </section>
+
+  <!-- Sección Contacto -->
+  <section id="contacto" class="form-section">
+    <h2>¡Dejanos tu consulta!</h2>
+    <form action="https://formsubmit.co/camisoddu@gmail.com" method="POST">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="nombre">🌴 Nombre completo</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="correo">📧 Correo electrónico</label>
+          <input type="email" class="form-control" id="correo" name="correo" placeholder="Ej: juan@mail.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mensaje">💬 Tu consulta</label>
+        <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Contanos qué necesitás..." required></textarea>
+      </div>
+      <input type="hidden" name="_next" value="https://rcpiletas.com.ar/gracias.html">
+      <input type="hidden" name="_captcha" value="false">
+      <div class="text-center mt-3">
+        <button type="submit" class="btn btn-custom">Enviar</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/542215754925" class="whatsapp-button" target="_blank" title="Escribinos por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/800px-WhatsApp.svg.png" alt="WhatsApp Icon">
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 RC Piletas. Todos los derechos reservados. | Contacto: camisoddu@gmail.com
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
