@@ -30,33 +30,112 @@
     header {
       background-color: #1f4fa4;
       color: #1fd8e1;
-      padding: 0rem 1rem;
+      padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      position: relative;
     }
 
     header img {
-      height: 150px;
+      height: 90px;
+      max-width: 100%;
     }
 
     header h1 {
       font-family: 'Bangers', sans-serif;
-      font-size: 80px;
-      margin-left: 200px;
-      margin-bottom: 0px;
+      font-size: 2.5rem;
+      margin: 0 0 0 1rem;
+      flex: 1 1 auto;
+      text-align: left;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-left: auto;
     }
 
     nav a {
       color: #1fd8e1;
-      margin: 0 15px;
+      margin: 0 10px;
       font-weight: bold;
       text-decoration: none;
+      font-size: 1rem;
     }
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    /* Hamburger menu for mobile */
+    .navbar-toggler {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #1fd8e1;
+      margin-left: 10px;
+    }
+
+    .navbar-collapse {
+      display: flex !important;
+    }
+
+    @media (max-width: 991.98px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 0.5rem;
+      }
+      header h1 {
+        font-size: 2rem;
+        margin: 0.5rem 0 0.5rem 0;
+        text-align: left;
+      }
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 0.5rem;
+      }
+      header img {
+        height: 60px;
+      }
+      header h1 {
+        font-size: 1.5rem;
+        margin: 0.5rem 0 0.5rem 0;
+        text-align: left;
+      }
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #1f4fa4;
+        padding: 0.5rem 0;
+      }
+      nav.show {
+        display: flex;
+      }
+      nav a {
+        margin: 8px 0;
+        font-size: 1.1rem;
+      }
+      .navbar-toggler {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+      }
     }
 
     .carousel-item img {
@@ -68,6 +147,17 @@
     .carousel {
       margin: 2rem auto;
       width: 90%;
+      max-width: 900px;
+    }
+
+    @media (max-width: 767.98px) {
+      .carousel-item img {
+        height: 200px;
+      }
+      .carousel {
+        margin: 1rem auto;
+        width: 100%;
+      }
     }
 
     .form-section {
@@ -173,8 +263,22 @@
       border-radius: 15px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
-  </style>
 
+    @media (max-width: 767.98px) {
+      .form-section {
+        max-width: 98vw;
+        padding: 1rem 0.5rem;
+      }
+      .ubicacion-img {
+        max-width: 100vw;
+        border-radius: 8px;
+      }
+      footer {
+        font-size: 0.85rem;
+        margin-top: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -182,6 +286,7 @@
   <header>
     <img src="logorc.png" alt="Logo" />
     <h1>RC Piletas</h1>
+    <button class="navbar-toggler" aria-label="Menú">&#9776;</button>
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#productos">Productos</a>
@@ -252,5 +357,19 @@
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Responsive nav toggle
+    document.querySelector('.navbar-toggler').addEventListener('click', function() {
+      document.querySelector('header nav').classList.toggle('show');
+    });
+    // Close nav on link click (mobile)
+    document.querySelectorAll('header nav a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if(window.innerWidth < 768) {
+          document.querySelector('header nav').classList.remove('show');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
