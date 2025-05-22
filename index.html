@@ -35,7 +35,27 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      position: relative;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    /* Para evitar que el contenido quede oculto debajo del header fijo */
+    .header-spacer {
+      height: 104px;
+    }
+    @media (max-width: 991.98px) {
+      .header-spacer {
+        height: 110px;
+      }
+    }
+    @media (max-width: 767.98px) {
+      .header-spacer {
+        height: 80px;
+      }
     }
 
     header img {
@@ -281,6 +301,9 @@
   </style>
 </head>
 <body>
+
+  <!-- Spacer para header fijo -->
+  <div class="header-spacer"></div>
 
   <!-- Header -->
   <header>
