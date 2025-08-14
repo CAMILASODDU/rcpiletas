@@ -239,13 +239,18 @@
     }
 
     .form-section {
+
+
       max-width: 500px;
-      margin: 1.5rem auto;
+      margin: 1rem auto; /* top/bottom 1rem, left/right auto */
       background: linear-gradient(to bottom right, #e0f7fa, #b4d4f5);
       padding: 1rem 1.5rem;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     }
+
+
+    
 
     .form-section h2 {
       font-family: 'Bangers', sans-serif;
@@ -410,8 +415,19 @@
   </section>
 
   <!-- Sección Contacto -->
-  <section id="contacto" class="form-section">
-    <h2>Contacto</h2>
+<section id="contacto" class="form-section">
+  <div class="contacto-contenedor">
+    
+    <!-- Caja lateral -->
+    <div class="caja-lateral">
+      <h3>Contactanos</h3>
+      <p>📍 La Plata</p>
+      <p>📞 221 626 4027</p>
+      <p>✉️ ejemplo@correo.com</p>
+      <p>➡️ o envianos un mensaje directo a través del formulario</p>
+    </div>
+
+    <!-- Formulario -->
     <form>
       <div class="form-group">
         <label for="nombre">Nombre</label>
@@ -427,7 +443,42 @@
       </div>
       <button type="submit" class="form-button">Enviar</button>
     </form>
-  </section>
+
+  </div>
+</section>
+
+
+  <style>
+
+  /* Estilos para la sección de contacto */
+.contacto-contenedor {
+  display: flex;
+  justify-content: flex-start; /* alinea todo a la izquierda */
+  align-items: flex-start;     /* alinea arriba */
+  gap: 20px; /* espacio entre formulario y caja */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.caja-lateral {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  width: 250px;
+}
+
+@media (max-width: 768px) {
+  .contacto-contenedor {
+    flex-direction: column; /* en móviles se apilan */
+    align-items: center;
+  }
+  
+  .caja-lateral {
+    width: 100%;
+  }
+}
+  </style>
 
   <!-- WhatsApp -->
   <a href="https://wa.me/542216264027" class="whatsapp-button" target="_blank" title="Escribinos por WhatsApp">
