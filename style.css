@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url(wormz.png);
+  background-image: url(wormz.png);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   background-color: #ffffff;
@@ -43,14 +43,18 @@ header {
 }
 
 .header-spacer {
-  height: 80px; /* Para que el contenido no quede tapado por el header */
+  height: 80px;
+  /* Para que el contenido no quede tapado por el header */
 }
 
 .header-content {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-start;
+  /* LOGO A LA IZQUIERDA PEGADO */
 }
+
 
 header img {
   height: 50px;
@@ -59,9 +63,35 @@ header img {
 header h1 {
   font-family: "Bangers", cursive;
   font-size: 40px;
-  margin-left: 525px;
-  margin-top: 9px;
   color: aqua;
+  margin: 0;
+}
+
+/* Contenedor del título centrado (solo escritorio) */
+.header-title-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  /* EVITA QUE EL TITULO SE MUEVA */
+}
+
+
+
+@media (max-width: 768px) {
+  .header-title-center {
+    position: static;
+    transform: none;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  header img {
+    height: 40px;
+  }
 }
 
 /* =========================
@@ -69,10 +99,13 @@ header h1 {
 ========================= */
 .hero {
   position: relative;
-  height: 100vh; /* ocupa toda la altura de la pantalla */
-  background: 
-    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), /* capa semitransparente */
-    url("fondo_hero.png") center/cover no-repeat; /* tu imagen */
+  height: 100vh;
+  /* ocupa toda la altura de la pantalla */
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    /* capa semitransparente */
+    url("fondo_hero.png") center/cover no-repeat;
+  /* tu imagen */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,13 +123,40 @@ header h1 {
   font-family: "Bangers", cursive;
   font-size: 60px;
   margin-bottom: 10px;
-  color: #00c8ff; /* celeste brillante */
+  color: #00c8ff;
+  /* celeste brillante */
 }
 
 .hero p {
   font-size: 20px;
   margin-bottom: 25px;
 }
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .btn-hero {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+}
+
 
 .btn-hero {
   display: inline-block;
@@ -114,13 +174,15 @@ header h1 {
 }
 
 /* Asegura que el carrusel quede justo debajo */
-.hero + .carousel {
+.hero+.carousel {
   margin-top: 100px;
 }
 
 #proyectos {
-  padding: 40px 0;     /* espacio arriba y abajo */
-  text-align: center;  /* centra el contenido inline como <h2> */
+  padding: 40px 0;
+  /* espacio arriba y abajo */
+  text-align: center;
+  /* centra el contenido inline como <h2> */
 }
 
 #proyectos h2 {
@@ -135,9 +197,13 @@ header h1 {
 
 
 nav {
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
+  /* MENÚ A LA DERECHA */
   gap: 20px;
 }
+
 
 nav a {
   color: #fff;
@@ -164,8 +230,21 @@ nav a:hover {
 .carousel-item img {
   height: 500px;
   object-fit: cover;
-  margin-top: 20px; /* para que no quede tapado por el header */
+  margin-top: 20px;
+  /* para que no quede tapado por el header */
 }
+
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 250px;
+  }
+}
+
 
 /* =========================
    🏠 SECCIÓN NOSOTROS
@@ -182,12 +261,14 @@ nav a:hover {
 }
 
 #nosotros p {
-  font-size: 1.125rem; /* Tamaño de letra un poco más grande */
+  font-size: 1.125rem;
+  /* Tamaño de letra un poco más grande */
   line-height: 1.8;
-  color: #333; /* Gris oscuro para mejor lectura */
+  color: #333;
+  /* Gris oscuro para mejor lectura */
   max-width: 900px;
   margin: 0 auto;
-  text-align: center;
+  text-align: justify
 }
 
 .ubicacion-img {
@@ -197,6 +278,18 @@ nav a:hover {
   display: block;
   border-radius: 10px;
 }
+
+@media (max-width: 768px) {
+  #nosotros p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  #nosotros h2 {
+    font-size: 28px;
+  }
+}
+
 
 /* =========================
    📍 SECCIÓN CONTACTO
@@ -234,10 +327,13 @@ nav a:hover {
 .info-contacto {
   flex: 1 1 400px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* dos columnas iguales */
-  grid-template-rows: repeat(2, 1fr);    /* dos filas iguales */
+  grid-template-columns: repeat(2, 1fr);
+  /* dos columnas iguales */
+  grid-template-rows: repeat(2, 1fr);
+  /* dos filas iguales */
   gap: 20px;
-  height: 350px; /* igual que el alto del mapa */
+  height: 350px;
+  /* igual que el alto del mapa */
   box-sizing: border-box;
 }
 
@@ -274,6 +370,19 @@ nav a:hover {
 .redes img:hover {
   transform: scale(1.2);
 }
+
+@media (max-width: 768px) {
+  .info-contacto {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+  }
+
+  .item {
+    text-align: center;
+  }
+}
+
 
 /* =========================
    💬 WHATSAPP
@@ -355,4 +464,3 @@ footer a:hover {
     padding: 0 10px;
   }
 }
-
